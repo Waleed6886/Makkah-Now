@@ -4,23 +4,27 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class PlacesModel implements Parcelable {
-    private int mSiteImage;
+    private int mPlaceImage;
     private int mIndicator;
+    private int mLevelNumber;
 
-    public int getmSiteImage() {
-        return mSiteImage;
-    }
-
-    public int getmIndicator() {
-        return mIndicator;
-    }
-
-    public void setmSiteImage(int mSiteImage) {
-        this.mSiteImage = mSiteImage;
-    }
-
-    public void setmIndicator(int mIndicator) {
+    public PlacesModel(int mPlaceImage, int mIndicator, int mLevelNumber) {
+        this.mPlaceImage = mPlaceImage;
         this.mIndicator = mIndicator;
+        this.mLevelNumber = mLevelNumber;
+    }
+
+    protected PlacesModel(Parcel in) {
+        mPlaceImage = in.readInt();
+        mIndicator = in.readInt();
+        mLevelNumber = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(mPlaceImage);
+        dest.writeInt(mIndicator);
+        dest.writeInt(mLevelNumber);
     }
 
     @Override
@@ -28,8 +32,39 @@ public class PlacesModel implements Parcelable {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
+    public static final Creator<PlacesModel> CREATOR = new Creator<PlacesModel>() {
+        @Override
+        public PlacesModel createFromParcel(Parcel in) {
+            return new PlacesModel(in);
+        }
 
+        @Override
+        public PlacesModel[] newArray(int size) {
+            return new PlacesModel[size];
+        }
+    };
+
+    public void setmPlaceImage(int mPlaceImage) {
+        this.mPlaceImage = mPlaceImage;
+    }
+
+    public void setmIndicator(int mIndicator) {
+        this.mIndicator = mIndicator;
+    }
+
+    public void setmLevelNumber(int mLevelNumber) {
+        this.mLevelNumber = mLevelNumber;
+    }
+
+    public int getmPlaceImage() {
+        return mPlaceImage;
+    }
+
+    public int getmIndicator() {
+        return mIndicator;
+    }
+
+    public int getmLevelNumber() {
+        return mLevelNumber;
     }
 }

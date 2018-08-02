@@ -9,6 +9,23 @@ public class SiteModel implements Parcelable {
 
     private int mIndicator;
 
+    protected SiteModel(Parcel in) {
+        mSiteImage = in.readInt();
+        mIndicator = in.readInt();
+    }
+
+    public static final Creator<SiteModel> CREATOR = new Creator<SiteModel>() {
+        @Override
+        public SiteModel createFromParcel(Parcel in) {
+            return new SiteModel(in);
+        }
+
+        @Override
+        public SiteModel[] newArray(int size) {
+            return new SiteModel[size];
+        }
+    };
+
     public int getmSiteImage() {
         return mSiteImage;
     }
@@ -38,6 +55,7 @@ public class SiteModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-
+        parcel.writeInt(mSiteImage);
+        parcel.writeInt(mIndicator);
     }
 }

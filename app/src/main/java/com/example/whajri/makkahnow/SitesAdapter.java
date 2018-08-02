@@ -37,7 +37,7 @@ public class SitesAdapter extends RecyclerView.Adapter<SitesAdapter.MyViewHolder
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_item, parent, false);
+                .inflate(R.layout.card_item_site, parent, false);
         return new MyViewHolder(view);
     }
 

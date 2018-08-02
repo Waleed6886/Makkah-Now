@@ -37,32 +37,31 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.MyViewHold
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_item, parent, false);
+                .inflate(R.layout.card_item_place, parent, false);
         return new PlacesAdapter.MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         PlacesModel place = placesList.get(position);
         final float[] roundedCorners = new float[]
                 { 5, 5, 5, 5, 5, 5, 5, 5 };
         ShapeDrawable shape = new ShapeDrawable(new RoundRectShape(
                 roundedCorners, null, null));
-//        if (place.getmIndicator() < 30)
-//            MyColor = "#007A00";
-//        else if(place.getmIndicator() > 80)
-//            MyColor = "#a80000";
-//        else
-//            MyColor = "#ff9203";
-//
-//
-//        shape.getPaint().setColor(Color.parseColor(MyColor));
-//        ClipDrawable clip = new ClipDrawable(shape, Gravity.LEFT,
-//                ClipDrawable.HORIZONTAL);
-//        holder.SiteProg.setProgressDrawable(clip);
-//        holder.SiteImg.setImageResource(place.getmSiteImage());
-//        holder.SiteProg.setProgress(place.getmIndicator());
-//        holder.setOnclick(position);
+        if (place.getmIndicator() < 30)
+            MyColor = "#007A00";
+        else if(place.getmIndicator() > 80)
+            MyColor = "#a80000";
+        else
+            MyColor = "#ff9203";
+
+
+        shape.getPaint().setColor(Color.parseColor(MyColor));
+        ClipDrawable clip = new ClipDrawable(shape, Gravity.LEFT, ClipDrawable.HORIZONTAL);
+        holder.SiteProg.setProgressDrawable(clip);
+        holder.
+        holder.SiteProg.setProgress(place.getmIndicator());
+        holder.setOnclick(position);
     }
 
 
