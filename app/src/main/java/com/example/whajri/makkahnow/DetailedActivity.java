@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public class DetailedActivity extends AppCompatActivity {
     public static String SITE_KEY = "123";
     List<PlacesModel> placesList = new ArrayList<>();
     private PlacesAdapter placesAdapter;
+    private ProgressBar mAverageProg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,25 +26,23 @@ public class DetailedActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        createData();
         init();
+        createData();
     }
     private void init() {
-        Resources res = getResources();
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        placesAdapter = new PlacesAdapter(placesList,this,res);
+        placesAdapter = new PlacesAdapter(placesList,this);
         RecyclerView recyclerView = findViewById(R.id.detailedRecycleView);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(placesAdapter);
-
+//        mAverageProg = findViewById(R.id.average_detailed_progress_bar);
 
     }
     public void createData() {
-        placesList.add(new PlacesModel(R.drawable.ic_kabba,50,0));
-        placesList.add(new PlacesModel(R.drawable.ic_fill,30,1));
-        placesList.add(new PlacesModel(R.drawable.ic_roof,10,3));
-
+        placesList.add(new PlacesModel(R.drawable.ic_kabba,100,0));
+        placesList.add(new PlacesModel(R.drawable.ic_fill,50,1));
+        placesList.add(new PlacesModel(R.drawable.ic_roof,10,2));
+//        mAverageProg.setProgress(40);
 
 
     }

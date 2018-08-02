@@ -17,20 +17,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.List;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.MyViewHolder> {
     List<PlacesModel> placesList;
     Context context;
-    Resources res;
     String MyColor;
 
 
-    public PlacesAdapter(List<PlacesModel> placesList, Context context, Resources res) {
+    public PlacesAdapter(List<PlacesModel> placesList, Context context) {
         this.placesList = placesList;
         this.context = context;
-        this.res = res;
     }
 
     @NonNull
@@ -58,10 +57,11 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.MyViewHold
 
         shape.getPaint().setColor(Color.parseColor(MyColor));
         ClipDrawable clip = new ClipDrawable(shape, Gravity.LEFT, ClipDrawable.HORIZONTAL);
-        holder.SiteProg.setProgressDrawable(clip);
-        holder.
-        holder.SiteProg.setProgress(place.getmIndicator());
-        holder.setOnclick(position);
+        holder.mPlaceProg.setProgressDrawable(clip);
+        holder.mPlaceImg.setImageResource(place.getmPlaceImage());
+        holder.mPlaceProg.setProgress(place.getmIndicator());
+        holder.mPlaceLevel.setText(String.valueOf(place.getmLevelNumber()));
+//        holder.setOnclick(position);
     }
 
 
@@ -85,18 +85,18 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.MyViewHold
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        //        @BindView(R.id.PostImg)
-        ImageView SiteImg;
-        //        @BindView(R.id.PostMainTitle)
-        ProgressBar SiteProg;
+        private ImageView mPlaceImg;
+        private ProgressBar mPlaceProg;
+        private TextView mPlaceLevel;
 
 
 
 
         public MyViewHolder(final View itemView) {
             super(itemView);
-            SiteImg = itemView.findViewById(R.id.SiteImg);
-            SiteProg = itemView.findViewById(R.id.pb);
+            mPlaceImg = itemView.findViewById(R.id.level_icon_detailed_page);
+            mPlaceProg = itemView.findViewById(R.id.progressBar_detailed_page);
+            mPlaceLevel = itemView.findViewById(R.id.level_number_detailed_page);
         }
 
         void setOnclick(final int position) {
