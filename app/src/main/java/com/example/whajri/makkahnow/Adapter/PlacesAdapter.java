@@ -1,8 +1,7 @@
-package com.example.whajri.makkahnow;
+package com.example.whajri.makkahnow.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ShapeDrawable;
@@ -18,6 +17,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.whajri.makkahnow.Activity.DetailedActivity;
+import com.example.whajri.makkahnow.Model.PlacesModel;
+import com.example.whajri.makkahnow.R;
 
 import java.util.List;
 

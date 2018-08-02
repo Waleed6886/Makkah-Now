@@ -1,4 +1,4 @@
-package com.example.whajri.makkahnow;
+package com.example.whajri.makkahnow.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+
+import com.example.whajri.makkahnow.Activity.DetailedActivity;
+import com.example.whajri.makkahnow.R;
+import com.example.whajri.makkahnow.Model.SiteModel;
 
 import java.util.List;
 

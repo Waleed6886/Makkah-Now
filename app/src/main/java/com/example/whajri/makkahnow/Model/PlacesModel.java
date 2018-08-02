@@ -1,4 +1,4 @@
-package com.example.whajri.makkahnow;
+package com.example.whajri.makkahnow.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
